@@ -186,49 +186,6 @@
     <link href="css/estilos.css" rel="stylesheet">
 </head>
 <body>
-   
 
-    <form id="registro" action="" method="post" enctype="multipart/form-data">
-         <h1>Formulario de registro</h1>
-         <br>   
-         
-        <input type="hidden" name="token" value="<?= $token ?>">
-        
-        <input type="text" name="nombre" placeholder="Nombre" value="<?php if (isset($nombre)) print($nombre) ?>"><br>
-        <?=MensajesFlash::imprimirMensaje("error-nombre"); ?>
-
-        <input type="text" name="apellidos" placeholder="Apellidos" value="<?php if (isset($apellidos)) print($apellidos) ?>"><br>
-        <?=MensajesFlash::imprimirMensaje("error-apellidos"); ?>
-                
-        <input type="text" name="email" placeholder="email" value="<?php if (isset($email)) print($email) ?>"><br>
-        <?=MensajesFlash::imprimirMensaje("error-email-registro"); ?>
-
-        <input type="text" name="telefono" placeholder="Telefono" value="<?php if (isset($telefono)) print($telefono) ?>"><br>
-        <?=MensajesFlash::imprimirMensaje("error-telefono"); ?>
-
-        <input type="password" name="password" placeholder="Contraseña"><br>
-        <?=MensajesFlash::imprimirMensaje("error-password"); ?>
-
-        <input type="password" name="password2" placeholder="Repita la contraseña"><br>
-
-        <br>
-        <label id="botonfoto">
-            Seleccionar foto de perfil
-            
-            <input type="file" name="foto" accept="image/*">
-        </label>
-        
-        <?=MensajesFlash::imprimirMensaje("error-foto"); ?>
-        
-        <br>
-        <br>
-        
-        <button type="submit" form="registro" id="boton">Registrarse</button>
-        <?=MensajesFlash::imprimirMensaje("error-token"); ?>
-
-        <br>
-
-        <a href="index.php" id="urlregistro">Volver al login</a>
-    </form>
 </body>
 </html>
