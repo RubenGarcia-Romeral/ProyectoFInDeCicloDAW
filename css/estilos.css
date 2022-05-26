@@ -1,0 +1,276 @@
+ 
+* {
+    margin: 0;
+    font-family: "Arial";
+}
+
+body {
+    background-color: #F2EBDC;
+
+}
+
+nav #logout{
+    margin: 5px;
+    background-color: #e9e9e9;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid black;
+    float: right;
+}
+nav #logout:hover{
+    background-color: #f0f0f0;
+}
+nav a:hover {
+    color: white;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    background-color: #DEF241;
+
+
+}
+nav a {
+    margin-right: 13px;
+    font-weight: bolder;
+    color: blue;
+}
+
+h1, #iniciar-sesion, #registro, #reserva {
+    text-align: center;
+}
+
+#foto-perfil {
+    height: 80px;
+    width: 80px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
+    margin: 5px;
+}
+.fotoraqueta{
+    height: 80px;
+    width: 80px;
+    background-size: cover;
+    background-position: center;
+    margin: 5px;
+    margin-left: 10px;
+    float: right;
+}
+
+a {
+    text-decoration: none;
+}
+
+#fecha{
+    width: 30%;
+    background-color: #114BBF;
+    color: white;
+}
+
+
+#foto-perfil {
+    margin-left: 10px;
+}
+
+#iniciar-sesion {
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 2em;
+    margin: 2em;
+    margin: auto;
+    height: 300px;
+    width: 400px;
+    background-color: #048ABF;
+    margin-top: 5%;
+    -webkit-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
+    -moz-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
+    box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61)
+}
+
+#registro{
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 2em;
+    margin: 2em;
+    margin: auto;
+    height: 600px;
+    width: 50%;
+    background-color: #048ABF;
+    margin-top: 5%;
+    -webkit-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
+    -moz-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
+    box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61)
+}
+
+
+#urlregistro{
+    color: #DEF241;
+}
+
+input {
+    margin-top: 5px;
+    padding: 0.5em;
+    width: 50%;
+    margin-bottom: 1em;
+}
+
+#botonfoto {
+    border-radius: 5px;
+    padding: 8px;
+    width: 50%;
+    background-color: #d3cfcf;
+    cursor: pointer;
+}
+
+#botonfoto:hover {
+    background-color: #eae5e5;
+}
+
+#boton {
+    margin: 5px;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    background-color: #DEF241;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+#boton:hover{
+    background-color: #d3d70f;
+}
+
+#errores {
+    margin-top: 16px;
+    margin-bottom: 0px;
+}
+
+.error {
+    color: red;
+}
+
+.texto {
+    align-items: center;
+    justify-content: center;
+}
+
+#horas-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+    background-image: url("/ReservasRuben/imagenes/fondo.png");
+    width: 20%;
+    height: 30%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-size: cover;
+    border-radius: 7px;
+
+}
+
+#pistas-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+    background-image: url("/ReservasRuben/imagenes/fondo.png");
+    width: 20%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    background-size: cover;
+
+
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.hora, .pista {
+    margin: 10px;
+    padding: 10px;
+
+}
+
+#reservas {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+
+}
+
+.reserva {
+    border: 1px solid yellow;
+    border-radius: 10px;
+    width: 20%;
+    height: 70%;
+    padding: 5px;
+    margin: 15px;
+    margin-left: 20px;
+    background-color: #114BBF;
+    color: white;
+    -webkit-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
+    -moz-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
+    box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61)
+}
+#horas-reserva, #pistas-reserva {
+    list-style: none;
+}
+.disponible {
+    color: green;
+    border: 2px solid green;
+    text-decoration: none;
+    font-weight: bolder;
+    cursor: pointer;
+
+}
+
+.no-disponible {
+    color: red;
+    border: 2px solid red;
+    font-weight: bolder;
+    background-color: #ff8080;
+}
+
+.seleccionado {
+    color: blue;
+    border: 2px solid blue;
+    background: rgba(255, 255, 255, .5); 
+
+}
+
+#borrarbasura {
+    cursor: pointer;
+    color: yellow;
+}
+#botonborrar{
+    cursor: pointer;
+    background-color: transparent !important;
+    text-decoration: none;
+    border: none;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+
+}
+
+#horas{
+    padding: 10px;
+    margin: 20px;
+}
+
+#pistas{
+    padding: 10px;
+    margin: 20px;
+}
