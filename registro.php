@@ -176,16 +176,3 @@
     $token = md5(time() + rand (0, 999));
     $_SESSION['token'] = $token;
 ?>
-
-<!DOCTYPE html>
-<html lang="es-ES">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link href="css/estilos.css" rel="stylesheet">
-</head>
-<body>
-
-</body>
-</html>

@@ -37,230 +37,117 @@ if (!isset($_COOKIE['uid']) || (Sesion::existe() == false)) {
         $foto = "default.png";
     }
 }
+
+$mes = date('m');
+$dia = date('d');
+$anio = date('Y');
+
+$hoy = $anio . '-' . $mes . '-' . $dia;
 ?>
 
 <!DOCTYPE html>
 <html lang="es-ES">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <link href="css/estilos.css" rel="stylesheet">
-    </head>
-    <body>
-        <nav>
 
-            <div id="foto-perfil" style="background-image: url('imagenes/fotosdeperfil/<?= $foto ?>')"></div> <?= $usuario->getNombre(); ?> |  <button id="logoutboton" form="logout">Cerrar sesion</button>|    
-            <a href="reservas.php">  Realizar una nueva reserva</a>
-            <a href="misreservas.php">Mis reservas</a>
-            <form id="logout" action="logout.php"></form>
-<!--            <img class="fotoraqueta" src="imagenes/raqueta.png" alt=""/>-->
-            <?php if ($usuario->getRol() == "admin"): ?>
-            <a href="admin/admin.php">Sistema de administracion</a>
-            <?php            endif; ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="css/estilos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/dc32817a4f.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="imagenes/favicon.png" />
+</head>
+
+<body>
+
+    <nav style="color:white" class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div id="foto-perfil" style="background-image: url('imagenes/fotosdeperfil/<?= $foto ?>'); margin-right: 15px;"></div>
+        <h7 style="text-transform: uppercase;"><?= $usuario->getNombre(); ?></h7>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul style="margin-left:15px" class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex flex-direction-column">
+                <li class="nav-item active">
+                    <a class="enlace-nav current" href="reservas.php">Realizar una nueva reserva</a>
+                </li>
+                <li class="nav-item">
+                    <a class="enlace-nav" href="misreservas.php">Mis reservas</a>
+                </li>
+                <form hidden id="logout" action="logout.php"></form>
+                <?php if ($usuario->getRol() == "admin") : ?>
+                    <a class="enlace-nav" href="admin/admin.php">Sistema de administracion</a>
+                <?php endif; ?>
+            </ul>
+            <button class="boton-logout" id="logoutboton" form="logout">Cerrar sesion</button>
+        </div>
+    </nav>
 
 
 
-        </nav>
-        <br><br>
-        <h1>Realizar una reserva</h1>
-        <br><br><br>
 
-        <form id="reserva" action="confirmacion.php" method="post">
-            Seleccione una fecha para su reserva: 
+    <h1 class="titulo-reserva">Realizar una reserva</h1>
 
 
-            <br><br><br>
-            <input type="date" id="fecha" name="fecha" min="" value="Introduza la fecha de reserva"<?= $fechaActual->format("Y-m-d") ?>"><br><br>
+    <form id="reserva" action="confirmacion.php" method="post">
+        <h6 class="subtitulo-reserva">Seleccione una fecha para su reserva: </h6>
 
-            <h3 class="texto" style="display: none">Elija la hora u horas que quiera estar:</h3>
 
-            <div id="horas-container">
 
-                <div class="divimagen">
+        <input style="margin-bottom: 20px;" type="date" id="fecha" name="fecha" min="" value="<?php echo $hoy; ?>" <?= $fechaActual->format("Y-m-d") ?>">
 
-                    <table id="horas" style="display: none">
-                        <tr class="fila">
-                            <td id="nueve" class="hora" value="09:00">9:00</td>
-                            <td id="once" class="hora" value="11:00">11:00</td>
-                            <td id="trece" class="hora" value="13:00">13:00</td>
-                        </tr>
-                        <tr class="fila">
-                            <td id="diez" class="hora" value="10:00">10:00</td>
-                            <td id="doce" class="hora" value="12:00">12:00</td>
-                            <td id="catorce" class="hora" value="14:00">14:00</td>
-                        </tr>
-                    </table>
+        <h3 class="texto" style="display: none">Hora de la reserva:</h3>
+
+        <div id="horas-container">
+
+            <div id="horas" style="display: none">
+                <div class="fila">
+                    <div id="nueve" class="hora nueve" value="09:00">9:00</div>
+                    <div id="once" class="hora" value="11:00">11:00</div>
+                    <div id="trece" class="hora una" value="13:00">13:00</div>
+                </div>
+                <div class="fila">
+                    <div id="diez" class="hora diez" value="10:00">10:00</div>
+                    <div id="doce" class="hora" value="12:00">12:00</div>
+                    <div id="catorce" class="hora dos" value="14:00">14:00</div>
                 </div>
             </div>
 
-            <h3 class="texto" style="display: none">Seleccione la pista o postas donde quiera jugar:</h3>
-            <div id="pistas-container">
-                <table id="pistas" style="display: none">
-                    <tr class="fila">
-                        <td id="pista-uno" class="pista" value="1">Pista 1</td>
-                        <td id="pista-dos" class="pista" value="2">Pista 2</td>
-                    </tr>
-                    <tr class="fila">
-                        <td id="pista-tres" class="pista" value="3">Pista 3</td>
-                        <td id="pista-cuatro" class="pista" value="4">Pista 4</td>
-                    </tr>
-                </table>
+        </div>
+
+        <h3 class="texto" style="display: none">Pista de la reserva: </h3>
+        <div id="pistas-container">
+            <div id="pistas" style="display: none">
+                <div class="fila">
+                    <div id="pista-uno" class="pista uno" value="1">Pista 1</div>
+                    <div id="pista-dos" class="pista pista-dos" value="2">Pista 2</div>
+                </div>
+                <div class="fila">
+                    <div id="pista-tres" class="pista tres" value="3">Pista 3</div>
+                    <div id="pista-cuatro" class="pista cuatro" value="4">Pista 4</div>
+                </div>
             </div>
+        </div>
 
-            <button id="boton" type="submit" style="display: none;">Reservar</button>
+        <button id="boton" type="submit" style="display: none;">Reservar</button>
 
-            <div id="errores">
+        <div id="errores">
 
-                <?= MensajesFlash::imprimirMensaje("error-reserva"); ?>
-                <?= MensajesFlash::imprimirMensaje("error-login"); ?>
-                <?= MensajesFlash::imprimirMensaje("error-fecha"); ?>
-
-
-
-            </div>
-        </form>
-        <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                
-                $("#fecha").change(function (e) {
-                    let reservas = new Array();
-                    let pistas = new Array();
-
-
-                    $("#errores").empty();
-                    
-                    $(".texto, #horas, #pistas").css("display", "flex");
+            <?= MensajesFlash::imprimirMensaje("error-reserva"); ?>
+            <?= MensajesFlash::imprimirMensaje("error-login"); ?>
+            <?= MensajesFlash::imprimirMensaje("error-fecha"); ?>
 
 
 
-                    $("#nueve, #diez, #once, #doce, #trece, #catorce, #pista-uno, #pista-dos, #pista-tres, #pista-cuatro").removeClass("no-disponible");
-                    $("#nueve, #diez, #once, #doce, #trece, #catorce, #pista-uno, #pista-dos, #pista-tres, #pista-cuatro").removeClass("seleccionado");
-                    $("#nueve, #diez, #once, #doce, #trece, #catorce, #pista-uno, #pista-dos, #pista-tres, #pista-cuatro").addClass("disponible");
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/reservar.js"></script>
 
-                    $("#nueve, #diez, #once, #doce, #trece, #catorce").on("click", function () {
-                        
-                        
-                        if (reservas.includes($(this).attr("value"))) {
-                            
-                            let indice = reservas.indexOf($(this).attr("value"));
-                            if (indice > -1) {
-                                
-                                $(this).removeClass("seleccionado");
-                                reservas.splice(indice, 1);
+</body>
 
-
-                                if (reservas.length === 0) {
-                                    $("#boton").css("display", "none");
-                                }
-                                
-                            }
-                            
-                        } else {
-                            
-                            $(this).addClass("seleccionado");
-                            reservas.push($(this).attr("value"));
-                            reservas.sort();
-
-                            if (reservas.length > 0 && pistas.length > 0) {
-                                $("#boton").css("display", "inline-block");
-                                
-                            }
-                            
-                        }
-                    });
-
-
-
-                    $("#pista-uno, #pista-dos, #pista-tres, #pista-cuatro").on("click", function () {
-                        if (pistas.includes($(this).attr("value"))) {
-                            let indice = pistas.indexOf($(this).attr("value"));
-                            if (indice > -1) {
-                                $(this).removeClass("seleccionado");
-                                pistas.splice(indice, 1);
-
-                                if (pistas.length === 0) {
-                                    $("#boton").css("display", "none");
-                                }
-                                
-                            }
-                            
-                            
-                        } else {
-                            
-                            
-                            $(this).addClass("seleccionado");
-                            pistas.push($(this).attr("value"));
-                            pistas.sort();
-
-                            if (pistas.length > 0 && reservas.length > 0) {
-                                $("#boton").css("display", "inline-block");
-                                
-                            }
-                            
-                        }
-                        
-                        
-                    });
-
-                    $("#reserva").submit(function (e) {
-                        
-                        
-                        for (let j = 0; j < pistas.length; j++) {
-                            
-                            
-                            $("#reserva").append("<input type='text' name='pistas[]' " +
-                                    
-                                    "value='" + pistas[j] + "'  style='display: none'>");
-                        }
-
-                        for (let i = 0; i < reservas.length; i++) {
-                            $("#reserva").append("<input type='text' name='horas[]' " +
-                                    "value='" + reservas[i] + "' style='display: none'>");
-                            
-                        }
-                    });
-
-                    $.ajax({
-                    
-                    
-                        url: "ajax/fetch_reservas.php",
-                        
-                        type: "post",
-                        
-                        
-                        data: {fecha: $("#fecha").val()},
-                        
-                        
-                        success: function (response) {
-                            
-                            
-                            const reservas = JSON.parse(response);
-                            reservas.forEach(reserva => {
-                                
-                                
-                                $(`#${reserva.hora}`).removeClass("disponible");
-                                $(`#${reserva.hora}`).addClass("no-disponible");
-                                $(`#${reserva.hora}`).off("click");
-
-                                $(`#${reserva.pista}`).removeClass("disponible");
-                                $(`#${reserva.pista}`).addClass("no-disponible");
-                                $(`#${reserva.pista}`).off("click");
-                                
-                                
-                            });
-                            
-                            
-                        }
-                        
-                        
-                        
-                    });
-                });
-                
-            });
-        </script>
-
-    </body>
 </html>

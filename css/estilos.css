@@ -1,44 +1,47 @@
- 
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
 * {
     margin: 0;
     font-family: "Arial";
 }
 
-body {
-    background-color: #F2EBDC;
-
-}
-
-nav #logout{
-    margin: 5px;
-    background-color: #e9e9e9;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid black;
-    float: right;
-}
-nav #logout:hover{
-    background-color: #f0f0f0;
-}
 nav a:hover {
     color: white;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    padding: 1em;
-    background-color: #DEF241;
-
-
-}
 nav a {
     margin-right: 13px;
     font-weight: bolder;
     color: blue;
 }
 
-h1, #iniciar-sesion, #registro, #reserva {
+.enlace-nav{
+    text-decoration: none !important;
+    color: #1161ee;
+}
+
+.boton-logout{
+    background-color: white;
+    border-style: none;
+    color: #114BBF;
+    height: 1.5rem;
+    border: none;
+    border-radius: 7px;
+}
+
+.boton-logout:hover{
+    background-color: rgb(233, 233, 233);
+    color: #114BBF;
+}
+
+.titulo-reserva{
+    margin-top: 5rem;
+    font-family: 'Anton', sans-serif;
+}
+
+
+h1, #reserva {
     text-align: center;
 }
 
@@ -50,19 +53,7 @@ h1, #iniciar-sesion, #registro, #reserva {
     border-radius: 40px;
     margin: 5px;
 }
-.fotoraqueta{
-    height: 80px;
-    width: 80px;
-    background-size: cover;
-    background-position: center;
-    margin: 5px;
-    margin-left: 10px;
-    float: right;
-}
 
-a {
-    text-decoration: none;
-}
 
 #fecha{
     width: 30%;
@@ -73,41 +64,6 @@ a {
 
 #foto-perfil {
     margin-left: 10px;
-}
-
-#iniciar-sesion {
-    margin-top: 10px;
-    border-radius: 20px;
-    padding: 2em;
-    margin: 2em;
-    margin: auto;
-    height: 300px;
-    width: 400px;
-    background-color: #048ABF;
-    margin-top: 5%;
-    -webkit-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
-    -moz-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
-    box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61)
-}
-
-#registro{
-    margin-top: 10px;
-    border-radius: 20px;
-    padding: 2em;
-    margin: 2em;
-    margin: auto;
-    height: 600px;
-    width: 50%;
-    background-color: #048ABF;
-    margin-top: 5%;
-    -webkit-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
-    -moz-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
-    box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61)
-}
-
-
-#urlregistro{
-    color: #DEF241;
 }
 
 input {
@@ -133,14 +89,39 @@ input {
     margin: 5px;
     font-size: 1.2em;
     margin-bottom: 1em;
-    background-color: #DEF241;
+    background-color: #1161ee;
+    color: white;
     cursor: pointer;
     border-radius: 4px;
     border: 1px solid black;
 }
 
+.botoncancelar{
+    background-color: red !important;
+}
+
+/*.botoncancelar:hover{
+    background-color: rgba(255, 0, 0, 0.473) !important;
+}
+*/
 #boton:hover{
-    background-color: #d3d70f;
+    background-color: #1162eeb7;
+}
+
+.botoncancelar:hover{
+    box-shadow: 5px 5px 30px 1px rgba(0,0,0,0.17);
+}
+
+.botonconfirmar:hover{
+    box-shadow: 5px 5px 30px 1px rgba(0,0,0,0.17);
+}
+
+.botoncancelar:active{
+    box-shadow: 5px 5px 30px 1px rgba(0,0,0,0.37);
+}
+
+.botonconfirmar:active{
+    box-shadow: 5px 5px 30px 1px rgba(0,0,0,0.37);
 }
 
 #errores {
@@ -162,14 +143,13 @@ input {
     align-items: center;
     justify-content: center;
     margin-bottom: 1em;
-    background-image: url("/ReservasRuben/imagenes/fondo.png");
     width: 20%;
     height: 30%;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-size: cover;
-    border-radius: 7px;
+    
+  
 
 }
 
@@ -178,13 +158,11 @@ input {
     align-items: center;
     justify-content: center;
     margin-bottom: 1em;
-    background-image: url("/ReservasRuben/imagenes/fondo.png");
     width: 20%;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 7px;
-    background-size: cover;
+
 
 
 }
@@ -196,7 +174,41 @@ input[type="file"] {
 .hora, .pista {
     margin: 10px;
     padding: 10px;
+}
 
+/* PONER BORDE A LAS HORAS*/
+.dos{
+    border-bottom-right-radius: 10px;
+}
+
+.diez{
+    border-top-right-radius: 10px;
+}
+
+.nueve{
+    border-top-left-radius: 10px;
+}
+
+.una{
+    border-bottom-left-radius: 10px;
+}
+/* ACABA EL BORDE EN LAS HORAS*/
+
+/* BORDE EN LAS PISTAS*/
+.uno{
+    border-top-left-radius: 15px;
+}
+
+.pista-dos{
+    border-bottom-left-radius: 15px;
+}
+
+.tres{
+    border-top-right-radius: 15px;
+}
+
+.cuatro{
+    border-bottom-right-radius: 15px;
 }
 
 #reservas {
@@ -207,20 +219,7 @@ input[type="file"] {
 
 }
 
-.reserva {
-    border: 1px solid yellow;
-    border-radius: 10px;
-    width: 20%;
-    height: 70%;
-    padding: 5px;
-    margin: 15px;
-    margin-left: 20px;
-    background-color: #114BBF;
-    color: white;
-    -webkit-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
-    -moz-box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61);
-    box-shadow: 12px 11px 31px -9px rgba(0,0,0,0.61)
-}
+
 #horas-reserva, #pistas-reserva {
     list-style: none;
 }
@@ -247,16 +246,30 @@ input[type="file"] {
 
 }
 
-#borrarbasura {
-    cursor: pointer;
-    color: yellow;
+.card-body{
+    text-align: center;
 }
+
 #botonborrar{
     cursor: pointer;
     background-color: transparent !important;
     text-decoration: none;
     border: none;
 }
+
+.basura{
+    color: red;
+}
+
+.basura:hover {
+    -webkit-animation: spin 2s infinite linear;
+    -moz-animation: spin 2s infinite linear;
+    -o-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+    color: rgba(255, 0, 0, 0.562);
+    
+  }
+  
 
 
 ul {
@@ -274,3 +287,48 @@ ul {
     padding: 10px;
     margin: 20px;
 }
+
+.current{
+    color: #759dec;
+}
+
+.texto-confirmacion{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* LO DE SELECCIONAR LA FECHA DE LA RESERVA*/
+kit-inner-spin-button { 
+    display:none;
+  }
+  ::-webkit-calendar-picker-indicator { background-color:white}
+  input[type=date]{
+    font-size:20px;
+  }
+  ::-webkit-datetime-edit-text { color:white; }
+  ::-webkit-datetime-edit-month-field { color:white; }
+  ::-webkit-datetime-edit-day-field { color: white; }
+  ::-webkit-datetime-edit-year-field { color:white; }
+  ::-webkit-calendar-picker-indicator{ 
+  
+    background-image: url(http://icons.iconarchive.com/icons/dakirby309/simply-styled/256/Calendar-icon.png);
+        background-position:center;
+         background-size:20px 20px;
+         background-repeat:no-repeat;
+  }
+
+.navbar-expand-lg{
+    text-align: center;
+  }
+
+@media (max-width: 991px){
+    .nav-item{
+        margin-bottom: 10px;
+    }
+
+    .boton-logout{
+        margin-top: 10px;
+    }
+   
+  }
+  
