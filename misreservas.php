@@ -43,7 +43,7 @@ if (!isset($_COOKIE['uid']) || (Sesion::existe() == false)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Mis reservas</title>
     <link href="css/estilos.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dc32817a4f.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -104,12 +104,12 @@ if (!isset($_COOKIE['uid']) || (Sesion::existe() == false)) {
                     <p class="card-text">Reserva <?= ($indice + 1) ?></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Pistas:
+                    <li style="background-color: #BCE5F5;" class="list-group-item">Pistas:
                         <?php foreach ($pistas as $pista) : ?>
                             <strong>Pista <?= $pista->getId_pista() ?></strong>
                         <?php endforeach; ?>
                     </li>
-                    <li class="list-group-item">Horas: de
+                    <li style="background-color: #B2EDAF;" class="list-group-item">Horas: de
                         <?php foreach ($horas as $hora) : ?>
                             <strong><?= $hora->getHora_inicio() ?></strong> a <strong><?= $hora->getHora_fin() ?></strong>
                         <?php endforeach; ?>
